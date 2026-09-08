@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - 本仓库是 **`maximhq/bifrost` 的 fork**：remote `github.com/lutasa/llm-bifrost`，工作分支 `dev`。文档/注释中残留的 "bifrost" 字样均指本仓库
 - **改任何代码前，先读完同目录 `AGENTS.md`**（53KB）：仓库布局、请求流、Provider/Plugin 模式、19 条 Gotchas、新增 Provider checklist、前端规范 —— 本文件不重复其内容，两者冲突时以 `AGENTS.md` + 实际代码为准
-- 相邻目录 `../llm-gateway/` 是编译为 `.so` 动态加载的 **LLMPlugin**（安全插件），锁定本仓库的 `bifrost/core v1.5.15`，部署目标 Bifrost v1.5.7。**改 `core/schemas/` 导出类型或插件接口签名 → 必须验证 `../llm-gateway/` 仍能编译**（`cd ../llm-gateway && go build ./...`）
+- 相邻目录 `../llm-gateway/` 是编译为 `.so` 动态加载的 **LLMPlugin**（安全插件），锁定本仓库的 `bifrost/core v1.7.5`，部署目标 Bifrost v1.6.7。**改 `core/schemas/` 导出类型或插件接口签名 → 必须验证 `../llm-gateway/` 仍能编译**（`cd ../llm-gateway && go build ./...`）
 
 ## 多模块工作区（新会话必读）
 
@@ -63,5 +63,5 @@ make lint && make fmt
 
 ## 工作区级提醒
 
-- 本文件（CLAUDE.md）在 fork 中为 untracked 文件，注意不要误提交到上游 fork 分支
+- 本文件（CLAUDE.md）已入库到 fork 的 `dev` 分支（2026-09-08）；若向上游 `maximhq/bifrost` 提 PR，注意不要把它带上
 - `../CLAUDE.md`（工作区根）记录两项目的耦合关系与部署链，涉及 llm-gateway 联动时先读它
